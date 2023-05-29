@@ -35,23 +35,36 @@ scene.add(ambientLight);
 
 // 球体
 const sphereGeometry = new THREE.SphereGeometry(5, 32, 16);
+const textureUrl = new URL(
+  "./texture/brick_wall_001_4k.blend/textures/brick_wall_001_diffuse_4k.jpg",
+  import.meta.url
+).href;
 const texture = new THREE.TextureLoader().load(
-  "./texture/brick_wall_001_4k.blend/textures/brick_wall_001_diffuse_4k.jpg"
+  "/texture/brick_wall_001_4k.blend/textures/brick_wall_001_diffuse_4k.jpg"
 );
 const sphereMaterial = new THREE.MeshBasicMaterial({ map: texture });
 const sphere = new THREE.Mesh(sphereGeometry, sphereMaterial);
 sphere.position.set(0, 10, -5);
 scene.add(sphere);
 
+const sphereMaterial2 = new THREE.MeshBasicMaterial({ color: 0x0000ff });
+const sphere2 = new THREE.Mesh(sphereGeometry, sphereMaterial2);
+sphere2.position.set(10, 10, -5);
+scene.add(sphere2);
+
+const sphere3 = new THREE.Mesh(sphereGeometry, sphereMaterial2);
+sphere3.position.set(-10, -10, -5);
+scene.add(sphere3);
+
 // 3DModel
 const loader = new FBXLoader();
 loader.load(
-  "./3dModel/Jeep_Renegade_2016_fbx/Jeep_Renegade_2016.fbx",
+  "/3dModel/Jeep_Renegade_2016_fbx/Jeep_Renegade_2016.fbx",
   function (object) {
     object.traverse(function (child) {
       if (child.isMesh) {
         new THREE.TextureLoader().load(
-          "./3dModel/Jeep_Renegade_2016_fbx/Jeep_Renegade_2016/car_jeep_ren.jpg",
+          "/3dModel/Jeep_Renegade_2016_fbx/Jeep_Renegade_2016/car_jeep_ren.jpg",
           (texture) => {
             child.material.map = texture;
             child.material.needsupdate = true;
