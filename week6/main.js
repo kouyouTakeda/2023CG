@@ -31,8 +31,8 @@ directionalLight.position.set(100, 100, 100);
 // 影を有効
 directionalLight.castShadow = true;
 scene.add(directionalLight);
-const helper = new THREE.DirectionalLightHelper(directionalLight, 5);
-scene.add(helper);
+// const helper = new THREE.DirectionalLightHelper(directionalLight, 5);
+// scene.add(helper);
 
 // const ambientLight = new THREE.AmbientLight(0xffffff);
 // scene.add(ambientLight);
