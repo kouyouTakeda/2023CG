@@ -40,7 +40,7 @@ scene.add(directionalLight);
 // 球体
 const sphereGeometry = new THREE.SphereGeometry(5, 32, 16);
 const textureUrl = new URL(
-  "./texture/brick_wall_001_4k.blend/textures/brick_wall_001_diffuse_4k.jpg",
+  "/texture/brick_wall_001_4k.blend/textures/brick_wall_001_diffuse_4k.jpg",
   import.meta.url
 ).href;
 const texture = new THREE.TextureLoader().load(textureUrl);
